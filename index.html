@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio </title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #3b0a45, #5a189a, #7b2cbf);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.7em;
+      color: #d0a6ff;
+      text-shadow: 0 0 15px rgba(208, 166, 255, 0.6);
+    }
+
+    header p {
+      color: #f3e8ff;
+      margin-top: 10px;
+      font-size: 1.1em;
+    }
+
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .tarjeta {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(214, 173, 255, 0.5);
+    }
+
+    .tarjeta img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tarjeta .contenido {
+      padding: 20px;
+    }
+
+    .tarjeta h2 {
+      color: #e5baff;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(229, 186, 255, 0.4);
+    }
+
+    .tarjeta p {
+      font-size: 0.95em;
+      color: #f1e4ff;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .tarjeta a {
+      display: inline-block;
+      background: #d0a6ff;
+      color: #3b0a45;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .tarjeta a:hover {
+      background: #b968ff;
+      color: white;
+      box-shadow: 0 0 15px rgba(185, 104, 255, 0.6);
+    }
+
+    footer {
+      margin-top: 60px;
+      color: #e2c6ff;
+      font-size: 0.9em;
+      text-align: center;
+    }
+
+    /* Animación al aparecer */
+    .tarjeta {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: aparecer 0.8s forwards;
+    }
+
+    .tarjeta:nth-child(1) { animation-delay: 0.2s; }
+    .tarjeta:nth-child(2) { animation-delay: 0.4s; }
+    .tarjeta:nth-child(3) { animation-delay: 0.6s; }
+    .tarjeta:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes aparecer {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Portafolio</h1>
+  </header>
+
+  <main class="contenedor">
+    <!-- Proyecto 1 -->
+    <div class="tarjeta">
+      <img src="./factura.png" alt="Factura">
+      <div class="contenido">
+        <h2>Factura</h2>
+        <p>Sitio web interactivo para generar y visualizar facturas digitales.</p>
+        <a href="https://oscar20981.github.io/factura-oscar/?authuser=0">Ver Proyecto</a>
+      </div>
+    </div>
+
+    <!-- Proyecto 2 -->
+    <div class="tarjeta">
+      <img src="./tienda.png" alt="Tienda">
+      <div class="contenido">
+        <h2>Tienda</h2>
+        <p>Tienda virtual moderna con catálogo, buscador y carrito de compras.</p>
+        <a href="https://oscar20981.github.io/pagina-wed-Oscar-Arciniegas/?authuser=0">Ver Proyecto</a>
+      </div>
+    </div>
+
+    <!-- Proyecto 3 -->
+    <div class="tarjeta">
+      <img src="./restaurante.png" alt="Restaurante">
+      <div class="contenido">
+        <h2>Restaurante</h2>
+        <p>Página web con menú digital, reservas y galería de platos destacados.</p>
+        <a href="https://luisgtgt.github.io/comida_rapidas/?authuser=0">Ver Proyecto</a>
+      </div>
+    </div>
+
+    <!-- Proyecto 4 -->
+    <div class="tarjeta">
+      <img src="./juego.png" alt="Juego">
+      <div class="contenido">
+        <h2>Juego</h2>
+        <p>Videojuego web con animaciones, sonidos y desafíos interactivos.</p>
+        <a href="https://oscar20981.github.io/juegos/?authuser=0">Ver Proyecto</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 - Creado por Oscar Arciniegas</p>
+  </footer>
+</body>
+</html>
