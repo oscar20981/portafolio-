@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio </title>
-
+  <title>Portafolio</title>
   <style>
     * {
       margin: 0;
@@ -43,10 +42,11 @@
 
     .contenedor {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 30px;
       width: 100%;
-      max-width: 1100px;
+      max-width: 1300px;
+      overflow-x: auto;
     }
 
     .tarjeta {
@@ -54,10 +54,19 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.4s, box-shadow 0.4s;
       cursor: pointer;
       backdrop-filter: blur(10px);
       position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: aparecer 0.8s forwards;
+      min-width: 200px;
+      max-width: 220px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      height: 330px;
     }
 
     .tarjeta:hover {
@@ -67,38 +76,46 @@
 
     .tarjeta img {
       width: 100%;
-      height: 180px;
+      height: 120px;
       object-fit: cover;
       border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
     }
 
     .tarjeta .contenido {
-      padding: 20px;
+      padding: 16px;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .tarjeta h2 {
       color: #e5baff;
-      font-size: 1.4em;
-      margin-bottom: 10px;
+      font-size: 1.2em;
+      margin-bottom: 8px;
       text-shadow: 0 0 10px rgba(229, 186, 255, 0.4);
     }
 
     .tarjeta p {
-      font-size: 0.95em;
+      font-size: 0.93em;
       color: #f1e4ff;
-      line-height: 1.5;
-      margin-bottom: 15px;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      flex: 1 1 auto;
     }
 
     .tarjeta a {
       display: inline-block;
       background: #d0a6ff;
       color: #3b0a45;
-      padding: 10px 20px;
+      padding: 8px 15px;
       border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
       transition: all 0.3s;
+      font-size: 0.98em;
+      margin-top: 3px;
     }
 
     .tarjeta a:hover {
@@ -115,16 +132,11 @@
     }
 
     /* Animación al aparecer */
-    .tarjeta {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: aparecer 0.8s forwards;
-    }
-
     .tarjeta:nth-child(1) { animation-delay: 0.2s; }
     .tarjeta:nth-child(2) { animation-delay: 0.4s; }
     .tarjeta:nth-child(3) { animation-delay: 0.6s; }
     .tarjeta:nth-child(4) { animation-delay: 0.8s; }
+    .tarjeta:nth-child(5) { animation-delay: 1.0s; }
 
     @keyframes aparecer {
       to {
@@ -132,14 +144,53 @@
         transform: translateY(0);
       }
     }
+
+    /* Scroll horizontal en pantallas pequeñas */
+    @media (max-width: 1200px) {
+      .contenedor {
+        max-width: 100vw;
+        grid-template-columns: repeat(5, 220px);
+        overflow-x: auto;
+      }
+      body {
+        padding: 20px 5px;
+      }
+    }
+
+    @media (max-width: 1150px) {
+      .contenedor {
+        grid-template-columns: repeat(5, 200px);
+      }
+      .tarjeta {
+        min-width: 180px;
+        max-width: 200px;
+        height: 315px;
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .contenedor {
+        grid-template-columns: repeat(5, 180px);
+      }
+      .tarjeta {
+        min-width: 160px;
+        max-width: 180px;
+        height: 300px;
+      }
+    }
+    /* Si quieres que las tarjetas se hagan una sola columna en celular, descomenta esto:
+    @media (max-width: 650px) {
+      .contenedor {
+        grid-template-columns: 1fr;
+      }
+    }
+    */
   </style>
 </head>
-
 <body>
   <header>
     <h1>Portafolio</h1>
   </header>
-
   <main class="contenedor">
     <!-- Proyecto 1 -->
     <div class="tarjeta">
@@ -150,7 +201,6 @@
         <a href="https://oscar20981.github.io/factura">Ver Proyecto</a>
       </div>
     </div>
-
     <!-- Proyecto 2 -->
     <div class="tarjeta">
       <img src="./tienda.png" alt="Tienda">
@@ -160,7 +210,6 @@
         <a href="https://oscar20981.github.io/pagian-wed/?authuser=0">Ver Proyecto</a>
       </div>
     </div>
-
     <!-- Proyecto 3 -->
     <div class="tarjeta">
       <img src="./restaurante.png" alt="Restaurante">
@@ -170,7 +219,6 @@
         <a href="https://luisgtgt.github.io/comida_rapidas/?authuser=0">Ver Proyecto</a>
       </div>
     </div>
-
     <!-- Proyecto 4 -->
     <div class="tarjeta">
       <img src="./juego.png" alt="Juego">
@@ -180,8 +228,16 @@
         <a href="https://oscar20981.github.io/juego/">Ver Proyecto</a>
       </div>
     </div>
+    <!-- Proyecto 5 -->
+    <div class="tarjeta">
+      <img src="./crud.png" alt="CRUD">
+      <div class="contenido">
+        <h2>CRUD</h2>
+        <p>Página web para registro de datos.</p>
+        <a href="https://oscar20981.github.io/CRUD/">Ver Proyecto</a>
+      </div>
+    </div>
   </main>
-
   <footer>
     <p>© 2025 - Creado por Oscar Arciniegas</p>
   </footer>
